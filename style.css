@@ -1,0 +1,137 @@
+body {
+  background: #F2994A;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F2C94C, #F2994A);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F2C94C, #F2994A);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.main-container .completed {
+  color: white;
+}
+
+.add-todo {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 50%;
+}
+.add-todo input {
+  border: transparent;
+  outline: transparent;
+  width: 80%;
+  height: 40px;
+  padding-inline: 1rem;
+  font-size: 1rem;
+}
+.add-todo input:focus {
+  transition: 600ms ease-in;
+}
+.add-todo input::-webkit-input-placeholder {
+  /* Edge */
+  padding-inline: 1rem;
+}
+.add-todo input:-ms-input-placeholder {
+  /* Internet Explorer */
+  padding-inline: 1rem;
+}
+.add-todo input::placeholder {
+  padding-inline: 1rem;
+}
+.add-todo button {
+  width: 50px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  background-color: red;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 1rem;
+}
+
+.display-todo {
+  width: 80%;
+}
+.display-todo ul[data-opacity=false] {
+  opacity: 1;
+}
+.display-todo ul[data-opacity=true] {
+  opacity: 0.6;
+}
+.display-todo .list-todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 1rem;
+  cursor: pointer;
+  height: 40px;
+  margin-top: 10px;
+  background-color: white;
+}
+.display-todo .list-todo li {
+  margin-top: 10px;
+  border: 1px red solid;
+}
+.display-todo .list-todo span[data-text=false] {
+  font-weight: 700;
+  padding-left: 3rem;
+  position: relative;
+}
+.display-todo .list-todo span[data-text=false][data-check=true]::before {
+  content: "\f00c";
+  position: absolute;
+  left: 0;
+  font-family: "Font Awesome 5 Pro";
+  color: green;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.display-todo .list-todo span[data-text=false][data-check=false]::before {
+  display: none;
+}
+.display-todo .list-todo span[data-text=true] {
+  font-weight: 700;
+  padding-left: 3rem;
+  position: relative;
+  text-decoration: line-through;
+}
+.display-todo .list-todo span[data-text=true][data-check=true]::before {
+  content: "\f00c";
+  position: absolute;
+  left: 0;
+  font-family: "Font Awesome 5 Pro";
+  color: green;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.display-todo .list-todo span[data-text=true][data-check=false]::before {
+  display: none;
+}
+.display-todo .list-todo i {
+  color: chocolate;
+}
+.display-todo .list-todo i:hover {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

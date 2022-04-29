@@ -72,6 +72,11 @@ body {
 .display-todo {
   width: 80%;
 }
+.display-todo button {
+  border: transparent;
+  outline: transparent;
+  background-color: transparent;
+}
 .display-todo ul[data-opacity=false] {
   opacity: 1;
 }

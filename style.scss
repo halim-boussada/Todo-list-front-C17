@@ -89,7 +89,12 @@ body {
 .display-todo {
     width: 80%;
 
-    
+    button{
+        border: transparent;
+        outline: transparent;
+        background-color: transparent;
+    }
+
     ul[data-opacity="false"] {
         opacity: 1;
     }

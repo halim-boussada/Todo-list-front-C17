@@ -1,14 +1,14 @@
 function render() {
-  document.getElementById("root").innerHTML = ``;
-  fetch("https://class17-todo.herokuapp.com/todo")
-    .then((response) => response.json()) // PARCE DATA
+   fetch("https://class17-todo.herokuapp.com/todo")
+    .then((response) => {
+      return response.json();
+    })
     .then((data) => {
       for (var i = 0; i < data.length; i++) {
         document.getElementById("root").innerHTML += `<li>${data[i].todo}</li>`;
       }
     });
 }
-
 render();
 
 function createTodo() {

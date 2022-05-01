@@ -17,6 +17,71 @@ body {
 .main-container .completed {
   color: white;
 }
+.main-container .edit[data-display=false] {
+  display: none;
+}
+.main-container .edit[data-display=true] {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 60vw;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+  background-color: aquamarine;
+  height: 50vh;
+  border: transparent;
+  outline: transparent;
+}
+.main-container .edit[data-display=true] input {
+  height: 30px;
+  width: 80%;
+  border: transparent;
+  outline: transparent;
+}
+.main-container .edit[data-display=true] input::-webkit-input-placeholder {
+  /* Edge */
+  padding-inline: 1rem;
+}
+.main-container .edit[data-display=true] input:-ms-input-placeholder {
+  /* Internet Explorer */
+  padding-inline: 1rem;
+}
+.main-container .edit[data-display=true] input::placeholder {
+  padding-inline: 1rem;
+}
+.main-container .edit[data-display=true] .buttons {
+  display: flex;
+  gap: 10px;
+}
+.main-container .edit[data-display=true] .buttons button {
+  border: none;
+  outline: none;
+  height: 30px;
+  background: #F2994A;
+  background: -webkit-linear-gradient(to right, #F2C94C, #F2994A);
+  background: linear-gradient(to right, #F2C94C, #F2994A);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.main-container .edit[data-display=true] .buttons button[data-edit=false] {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+.main-container .edit[data-display=true] .buttons button[data-edit=true] {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.space {
+  display: flex;
+  gap: 10px;
+}
 
 .add-todo {
   margin-top: 30px;

@@ -12,9 +12,7 @@
 </head>
 
 <body>
-<!-- <div id="root"></div> -->
-
-    <div class="main-container">
+  <div class="main-container">
         <h4 class="completed"></h4>
       <div class="add-todo">
         <input type="text" placeholder="Add a todo">
@@ -25,12 +23,16 @@
       <div class="display-todo">
           
       </div>
+      <div class="edit" data-display="false">
+        <h2>Edit the "To do"</h2>
+        <input type="text" class="editInput">
+        <div class="buttons">
+            <button data-cancel>Cancel</button>
+            <button data-edit="true">Edit</button>
+        </div>
+    </div>
     </div>
 
-
-    <div class="display-todo">
-      
-  </div>
 
     <script src="./app.js"></script>
     <!-- <script src="./app.js"></script> -->

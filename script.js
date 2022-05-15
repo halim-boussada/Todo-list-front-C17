@@ -7,7 +7,8 @@
     const btnAddNewTask = document.querySelector("#btnAddNewTask");
     const btnDeleteAll = document.querySelector("#btnDeleteAll");
     const taskList = document.querySelector("#task-list");
-    const items = ["Todo 1", "Todo 2", "Todo 3", "Todo 4", "Todo 5"];
+ 
+    let todos;
 
 
     // LOAD ITEMS
@@ -29,18 +30,41 @@
     }
 
     function loaditems() {
-        items.forEach(function (item) {
+        todos = getItemsFromLS();
+        todos.forEach(function (item) {
             createItem(item);
         })
     }
+    
+    // get items from LOCAL STORAGE
+    function getItemsFromLS(){
+           if(localStorage.getItem("todos") === null){
+               todos = [];
+           }
+           else{
+               // JSON.parse turn the string to an array!!!
+               todos = JSON.parse(localStorage.getItem("todos"));
+
+           }
+           return todos;
+
+    }
+
+// set items to LOCAL STORAGE
+    function setItemToLS(newToDo){
+        todos = getItemsFromLS();
+        todos.push(newToDo);
+        localStorage.setItem("todos",JSON.stringify(todos));
+    
+    }
 
     // this function works for all 
-    function createItem(text) {
+    function createItem(newToDo) {
         // Add "li"
 
         const li = document.createElement("Li");
         li.className = "list-group-item list-group-item-secondary";
-        li.appendChild(document.createTextNode(text));
+        li.appendChild(document.createTextNode(newToDo));
 
         // Add "a"
 
@@ -61,6 +85,7 @@
         // create item
         createItem(input.value);
 
+        setItemToLS(input.value);
         //clear the box after add an item
         input.value = "";
 
@@ -80,6 +105,7 @@
             if (confirm("Do you want to delete it?")) {
                 // console.log(e.target);
                 e.target.parentElement.parentElement.remove();
+                deleteTodoFromStorage(e.target.parentElement.parentElement.textContent);
             }
         }
         e.preventDefault();
@@ -88,18 +114,27 @@
     }
 
 
+    function deleteTodoFromStorage(deletetodo){
+        let todos = getItemsFromLS();
+        todos.forEach(function(todo,index){
+            if(todo === deletetodo){
+                todos.splice(index,1);
+            }
+        });
+        localStorage.setItem("todos",JSON.stringify(todos));
+
+    }
+
     // DELETE ALL ITEMS
     function deleteAllItems(e) {
         if (confirm("Do you want to delete ALL?")) {
-            //     taskList.childNodes.forEach(function(item){
-            //         if(item.nodeType === 1){
-            //             item.remove();
-            //         }
-            //     })
-            // }
-            taskList.innerHTML = ""; // !!! ustteki fonksiyonu kullanirsam, elle eklenenlerden bir tanesi silinmiyor
-        }
+            while(taskList.firstChild){
+                taskList.removeChild(taskList.firstChild);
+            }
+            localStorage.clear();
+
     }
+}
 
 
 
